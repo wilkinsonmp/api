@@ -1,0 +1,386 @@
+/* NASA WEB DESIGN SYSTEM - PROFESSIONAL EDITION 
+   Refined for Modern UI/UX 
+*/
+
+:root {
+  --nasa-blue: #0b3d91;
+  --nasa-blue-hover: #061f4a;
+  --nasa-red: #fc3d21;
+  --nasa-dark: #121212;
+  --nasa-gray-light: #f8f9fa;
+  --nasa-white: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 10px 25px rgba(0,0,0,0.1);
+  --font-main: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--nasa-gray-light);
+  color: var(--nasa-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* CENTERED HEADER */
+.site-header {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('../img/nasaheader.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+  color: var(--nasa-white);
+  display: flex;
+  padding: 6rem 2rem; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.4);
+  margin-bottom: 40px;
+}
+
+/* THE OMBRE LINE */
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, #fc3d21, #0b3d91);
+  filter: brightness(1.1); 
+}
+
+
+
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+input[type="date"],
+button {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  color: #666;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.4;
+  width: 100%;
+}
+
+/* Button  */
+button {
+ background-color: #0B3D91; 
+ color: #FFFFFF;
+  height: 44px; 
+  padding: 0 24px;
+  border: none;
+  border-radius: 3px; 
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+button:hover {
+ background-color: #061F4A; 
+}
+
+/*  wider screens */
+@media (min-width: 600px) {
+  .filters {
+    flex-direction: row;
+    padding: 0;
+  }
+  
+  input[type="date"],
+  button {
+    width: auto;
+  }
+}
+
+.placeholder {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5px 0;
+}
+.placeholder-logo {
+  width: 80px; 
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+  animation: logoFade 1.5s ease-in-out;
+}
+
+@keyframes logoFade {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+#space-fact-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 20px;
+}
+
+.fact-card {
+  background: #ffffff;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  border-left: 5px solid;
+  border-image: linear-gradient(to bottom, #fc3d21, #8000ff, #0b3d91) 1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.fact-card:hover {
+  transform: scale(1.02);
+}
+
+.fact-label {
+  color: #fc3d21; 
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+#fact-text {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+  font-style: italic;
+}
+
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; 
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/*GALLERY CARD */
+.gallery-item {
+  background: var(--nasa-white);
+  border: 1px solid #e1e4e8;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 420px; 
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  border-color: var(--nasa-blue);
+}
+
+/* IMAGE  */
+.gallery-item img {
+  width: 100%;
+  height: 260px; 
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/*  CONTENT  */
+.card-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--nasa-blue);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* mobile */
+@media (max-width: 900px) {
+  #gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  #gallery { grid-template-columns: 1fr; }
+}
+
+/* LOADER */
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid var(--nasa-blue);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* MODAL */
+button {
+  background-color: var(--nasa-blue);
+  letter-spacing: 1.5px; /* THE PRO MOVE */
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 4px;
+  padding: 12px 24px;
+  transition: all 0.2s ease;
+}
+
+#modalTitle {
+  font-weight: 800;
+  letter-spacing: -0.5px; 
+  color: var(--nasa-blue);
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
+
+/*  image  */
+#modalImg {
+  display: block;      
+  width: 100%;          
+  max-height: 70vh;     
+  object-fit: contain;  
+  margin: 0 auto 1.5rem auto; 
+  background-color: #000; 
+}
+
+
+.modal-info {
+  padding: 0 10px;      
+  text-align: left;     
+}
+
+.modal-content {
+  background-color: white;
+  margin: 2vh auto;
+  padding: 2.5rem 2rem 2rem 2rem; 
+  width: 90%;
+  max-width: 900px;
+  max-height: 95vh;
+  overflow-y: auto;
+  border-top: none; 
+  display: flex;
+  flex-direction: column;
+  position: relative; 
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 12px; 
+}
+
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px; 
+  background: linear-gradient(to right, #fc3d21, #8000ff, #0b3d91);
+}
+
+
+#modalDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+#modalImg[src=""], 
+#modalImg:not([src]) {
+  display: none;
+}
+
+
+#modalImg[src] {
+  display: block;
+  max-width: 100%;
+  border-radius: 8px; 
+  margin-bottom: 15px;
+}
+
+
+.exit-btn {
+  margin-top: 25px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #0b3d91; 
+  color: #0b3d91;
+  border-radius: 20px; 
+  cursor: pointer;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  width: 100%; 
+}
+
+.exit-btn:hover {
+  background: #0b3d91;
+  color: white;
+  box-shadow: 0 4px 10px rgba(11, 61, 145, 0.2);
+  transform: translateY(-2px);
+}
